@@ -1,7 +1,7 @@
 ## maxas-explained
 ### intro
 
-I'm trying to explain, at least for myself, how Scott Grey's SGEMM works.
+I'm trying to explain, at least for myself, how [Scott Grey's Maxwell Assembler SGEMM works](https://github.com/NervanaSystems/maxas) https://github.com/NervanaSystems/maxas.
 E.g. his documentation is missing the FFMA part and more or less the big picture. You really have to look at the real source code to see how the pseudo code gets interleaved/mixed.
 
 ### prerequisites:
