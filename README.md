@@ -88,15 +88,11 @@ short summary:
 
  store the first column and then read 4 units from the first line and 4 units from line 32 down, written by other threads.
 
-So thread tid 0 writes shared memory[0]      to global [0]     ; tid1 shared[1]      to global[1].
-
+So thread tid 0 writes shared memory[0]      to global [0]       ; tid1 shared[1]      to global[1].
           tid 0 writes shared memory[0+1*64] to global [0+4*1*64]; tid1 shared[1+1*64] to global[1+4*1*64]
-
-	  tid 0 writes shared memory[0+2*64] to global [0+4*2*64]; tid1 shared[1+2*64] to global[1+4*2*64]
-
-  	  tid 0 writes shared memory[0+3*64] to global [0+4*3*64]; tid1 shared[1+3*64] to global[1+4*3*64]
-
-	  tid 0 writes shared memory[32]     to global [32]    ; tid1 shared[1+32]   to global[1+32].
+	      tid 0 writes shared memory[0+2*64] to global [0+4*2*64]; tid1 shared[1+2*64] to global[1+4*2*64]
+  	      tid 0 writes shared memory[0+3*64] to global [0+4*3*64]; tid1 shared[1+3*64] to global[1+4*3*64]
+	      tid 0 writes shared memory[32]     to global [32]      ; tid1 shared[1+32]   to global[1+32].
 
 and so on.
 
