@@ -1,5 +1,6 @@
 ## maxas-explained
--- intro
+### intro
+
 I'm trying to explain, at least for myself, how Scott Grey's SGEMM works.
 E.g. his documentation is missing the FFMA part and more or less the big picture. You really have to look at the real source code to see how the pseudo code gets interleaved/mixed.
 
@@ -88,22 +89,20 @@ short summary:
 
  store the first column and then read 4 units from the first line and 4 units from line 32 down, written by other threads.
 ```
-So thread tid 0 writes shared memory[0]      to global [0]       ; tid1 shared[1]      to global[1].
-          tid 0 writes shared memory[0+1*64] to global [0+4*1*64]; tid1 shared[1+1*64] to global[1+4*1*64]
-	      tid 0 writes shared memory[0+2*64] to global [0+4*2*64]; tid1 shared[1+2*64] to global[1+4*2*64]
-  	      tid 0 writes shared memory[0+3*64] to global [0+4*3*64]; tid1 shared[1+3*64] to global[1+4*3*64]
-	      tid 0 writes shared memory[32]     to global [32]      ; tid1 shared[1+32]   to global[1+32].
-```
+tid 0 writes shared memory[0]      to global [0]       ; tid1 shared[1]      to global[1].
+tid 0 writes shared memory[0+1*64] to global [0+4*1*64]; tid1 shared[1+1*64] to global[1+4*1*64]
+tid 0 writes shared memory[0+2*64] to global [0+4*2*64]; tid1 shared[1+2*64] to global[1+4*2*64]
+tid 0 writes shared memory[0+3*64] to global [0+4*3*64]; tid1 shared[1+3*64] to global[1+4*3*64]
+tid 0 writes shared memory[32]     to global [32]      ; tid1 shared[1+32]   to global[1+32].
 and so on.
+```
 
-Paragraph line1
-line2
-line3
-      line4
+Global is spaced 4 apart because tid0 calculated a 4x4block and tid1 the next 4x4 block so what tid0 is reading from shared in the second column is from c-sub-matrix calculated by tid1. The next column from the next 4x4 block.
 
+Questions: stefan668668 ```g mail```
 
-Global is spaced 4 apart because tid0 calculated a 4x4block and tid1 the next 4x4 block so what tid0 is reading from shared in the second column is from c-sub-matrix calculated by tid1. The next column from the next 4x4 block
-
+### page1
+![page1 of my notes](page1.jpg)
 ### page2
 ![page2 of my notes](page2.jpg)
 ### page3
