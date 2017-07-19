@@ -109,6 +109,12 @@ Questions: stefan668668 ```g mail```
 ![page3 of my notes](page3.jpg)
 
 
+### make it work
+To make this code work you have to change the 32bit pointer to C to 64bit, same with texture loads.
+But just look at the .sass code in openai/sgemm where he uses 64 bit pointers for matrix A,B,C and no more texture loads.
+which are probably easier to use/pass around in actual deep neural net code.
+
+Also you have to edit the maxas.pl code to let you insert new assembler instructions. So check if maxas actually inserted your code.
 
 
 
