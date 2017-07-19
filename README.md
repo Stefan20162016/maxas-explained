@@ -118,6 +118,7 @@ which are probably easier to use/pass around in actual deep neural net code.
 
 Also you have to edit the maxas.pl code to let you insert new assembler instructions. So check if maxas actually inserted your code.
 
-
+Have "fun"
+-- Stefan, Munich, Bavaria/Germany
 
  
