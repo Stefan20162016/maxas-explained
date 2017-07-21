@@ -1,8 +1,19 @@
 ## maxas-explained
 ### intro
 
-I'm trying to explain, at least for myself, how [Scott Grey's Maxwell Assembler SGEMM works](https://github.com/NervanaSystems/maxas) https://github.com/NervanaSystems/maxas.
+I'm trying to explain, at least for myself, how [Scott Gray's Maxwell Assembler SGEMM works](https://github.com/NervanaSystems/maxas) https://github.com/NervanaSystems/maxas.
 E.g. his documentation is missing the FFMA part and more or less the big picture. You really have to look at the real source code to see how the pseudo code gets interleaved/mixed.
+
+Look at that: CUDA 8.0.61.2 New Features Release Notes:
+
+> his update contains performance enhancements and bug-fixes to the cuBLAS library
+in CUDA Toolkit 8. Deep Learning applications based on Recurrent Neural Networks
+(RNNs) and Fully Connected Networks (FCNs) will benefit from new GEMM kernels
+and improved heuristics in this release.
+> Integration of OpenAI GEMM kernels
+> ... NVIDIA  acknowledges  Scott  Gray  for  his  work  on  small-tile  GEMM  kernels  for
+Pascal.  These  kernels  were  originally  developed  for  OpenAI  and  included  in
+cuBLAS 8.0.61.2 
 
 ### prerequisites:
 download cuda 6.5 from nvidias cuda archive (you can extract the runfile with ./cuda_6.5.14_linux_64.run --tar mxvf ;), you need to get cuobjdump and nvdisasm from CUDA 6.5 because it outputs the right format maxas.pl can parse.
