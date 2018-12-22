@@ -110,9 +110,6 @@ and so on.
 
 Global is spaced 4 apart because tid0 calculated a 4x4block and tid1 the next 4x4 block so what tid0 is reading from shared in the second column is from c-sub-matrix calculated by tid1. The next column from the next 4x4 block.
 
-Questions: stefan668668
-
- ```g mail```
 
 ### page1
 ![page1 of my notes](page1.jpg)
